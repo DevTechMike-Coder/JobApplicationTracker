@@ -32,7 +32,7 @@ async function DashboardPage() {
   const board = await getBoard(session?.user.id ?? "");
 
   if (!session?.user) {
-    redirect("/signin");
+    redirect("/signup");
   }
 
   return (
