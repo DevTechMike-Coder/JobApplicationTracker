@@ -6,14 +6,14 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white px-10">
+    <div className="flex flex-col min-h-screen bg-white px-4 md:px-10">
       <main className="flex-1">
-        <section className="container mx-auto px-4 py-32">
-          <div className="mx-auto max-w-4xl text-center">
-            <h1 className="text-black mb-6 text-6xl font-bold">
+        <section className="container mx-auto px-4 py-20 md:py-32">
+          <div className="mx-auto max-w-4xl text-center animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <h1 className="text-black mb-6 text-4xl font-bold md:text-6xl">
               A better way to track your job
             </h1>
-            <p className="text-muted-foreground mb-10 text-xl">
+            <p className="text-muted-foreground mb-10 text-lg md:text-xl">
               Track and manage your job
             </p>
 
@@ -33,12 +33,14 @@ export default function Home() {
           </div>
         </section>
 
-        <ImageTabs />
+        <div className="animate-in fade-in zoom-in-95 duration-700 delay-200">
+          <ImageTabs />
+        </div>
 
-        <section className="border-t bg-white py-24">
+        <section className="border-t bg-white py-16 md:py-24">
           <div className="container mx-auto px-4">
-            <div className="grid gap-12 md:grid-cols-3">
-              <div className="flex flex-col">
+            <div className="grid gap-8 md:gap-12 md:grid-cols-3">
+              <div className="flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                   <Briefcase className="h-6 w-6 text-primary" />
                 </div>
@@ -50,7 +52,7 @@ export default function Home() {
                   applications at every stage of the process.
                 </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                   <TrendingUp className="h-6 w-6 text-primary" />
                 </div>
@@ -62,7 +64,7 @@ export default function Home() {
                   offer with visual Kanban boards.
                 </p>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                   <CheckCircle2 className="h-6 w-6 text-primary" />
                 </div>

@@ -51,8 +51,8 @@ export default function SignIn() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-white p-4 px-10">
-      <Card className="w-full max-w-md border-gray-200 shadow-lg">
+    <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-white p-4 sm:px-10">
+      <Card className="w-full max-w-md animate-in fade-in-0 slide-in-from-top-5 border-gray-200 shadow-lg duration-500">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-black">
             Sign In
@@ -64,7 +64,7 @@ export default function SignIn() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <CardContent className="space-y-4">
             {error && (
-              <div className="rounded-md bg-destructive/15 p-3 text-sm text-destructive">
+              <div className="animate-in fade-in-0 rounded-md bg-destructive/15 p-3 text-sm text-destructive">
                 {error}
               </div>
             )}
