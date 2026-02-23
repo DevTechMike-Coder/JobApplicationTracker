@@ -54,10 +54,10 @@ export default function SignIn() {
       <Card className="w-full max-w-md border-gray-200 shadow-lg">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold text-black">
-            Sign Up
+            Sign In
           </CardTitle>
           <CardDescription className="text-gray-600">
-            Create an account to start tracking your job applications
+            Enter your credentials to access your dashboard
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -102,12 +102,12 @@ export default function SignIn() {
               className="w-full bg-primary hover:bg-primary/90"
               disabled={loading}
             >
-              {loading ? "Loging into account..." : "LogIn"}
+              {loading ? "Logging into account..." : "Log In"}
             </Button>
             <p className="text-center text-sm text-gray-600">
               Dont have an account?{" "}
               <Link
-                href="/signin"
+                href="/signup"
                 className="font-medium text-primary hover:underline"
               >
                 SignUp

@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { signUp } from "@/lib/auth/auth-client"
+import { signUp, signIn } from "@/lib/auth/auth-client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
@@ -20,33 +20,46 @@ export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
   const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-
     setError("");
     setLoading(true);
 
     try {
+      // 1. Create the account
       const result = await signUp.email({
+        email,
+        password,
         name,
+      });
+
+      if (result.error) {
+        setError(result.error.message ?? "Failed to create account");
+        setLoading(false);
+        return;
+      }
+
+      // 2. Automatically sign in immediately after account creation
+      const signInResult = await signIn.email({
         email,
         password,
       });
 
-      if (result.error) {
-        setError(result.error.message ?? "Failed to sign up");
-      } else {
-        router.push("/dashboard");
+      if (signInResult.error) {
+        setError("Account created, but failed to sign in automatically. Please sign in manually.");
+        setLoading(false);
+        router.push("/signin");
+        return;
       }
+
+      // 3. Redirect to dashboard
+      router.push("/dashboard");
     } catch (err) {
       setError("An unexpected error occurred");
-    } finally {
       setLoading(false);
     }
   }
@@ -126,7 +139,7 @@ export default function SignUp() {
                 href="/signin"
                 className="font-medium text-primary hover:underline"
               >
-                Login
+                Sign In
               </Link>
             </p>
           </CardFooter>
