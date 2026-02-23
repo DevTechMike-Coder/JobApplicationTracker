@@ -52,7 +52,7 @@ export default function SignUp() {
       if (signInResult.error) {
         setError("Account created, but failed to sign in automatically. Please sign in manually.");
         setLoading(false);
-        router.push("/signin");
+        // router.push("/signin");
         return;
       }
 

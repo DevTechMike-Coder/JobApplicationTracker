@@ -40,6 +40,7 @@ export default function SignIn() {
       if (result.error) {
         setError(result.error.message ?? "Failed to login");
       } else {
+        router.refresh();
         router.push("/dashboard");
       }
     } catch (err) {
